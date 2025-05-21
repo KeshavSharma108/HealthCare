@@ -57,6 +57,7 @@ const handleDownload = async () => {
     const localUri = FileSystem.documentDirectory + `tempfile.${extension}`;
 
     console.log('Downloading file from:', fileUrl);
+    
 
     const { uri } = await FileSystem.downloadAsync(fileUrl, localUri);
 
@@ -79,9 +80,9 @@ const handleDownload = async () => {
 
       return updatedAdd;
     });
-
     const retrievedData = await getFileList({ key: "FILE_LIST" });
     console.log("Retrieved Data:", JSON.stringify(retrievedData, null, 2));
+    Alert.alert('File Successfully download')
 
   } catch (error) {
     console.error('Failed to download file:', error);
