@@ -82,7 +82,7 @@ const handleDownload = async () => {
     });
     const retrievedData = await getFileList({ key: "FILE_LIST" });
     console.log("Retrieved Data:", JSON.stringify(retrievedData, null, 2));
-    Alert.alert('File Successfully download')
+    Alert.alert('File Successfully Upload')
 
   } catch (error) {
     console.error('Failed to download file:', error);
