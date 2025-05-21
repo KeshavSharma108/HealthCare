@@ -6,7 +6,7 @@ import Splash from "../Screens/Splash";
 import Login from "../Screens/Login";
 import Remainder from "../Screens/SmallBoxScr/Remainder";
 import Register from "../Screens/Register";
-
+import CustomLogout from "../Component/customLogout";
 
 const Stack = createStackNavigator();
 
@@ -18,19 +18,21 @@ export function StackNavi() {
       screenOptions={{
         headerShown: false,
         headerStyle: { height: 80 },
-        ...TransitionPresets.FadeFromBottomAndroid, 
+        ...TransitionPresets.FadeFromBottomAndroid,
       }}
     >
       <Stack.Screen name="Splash" component={Splash} />
-      <Stack.Screen
-        name="Login"
-        component={Login}
-        options={{
-          headerShown: true,
-          headerTitleAlign: "center",
-          ...TransitionPresets.ScaleFromCenterAndroid, 
-        }}
-      />
+ <Stack.Screen
+  name="Login"
+  component={Login}
+  options={{
+    headerShown: true,
+    headerTitleAlign: "center",
+    headerLeft: () => null, // Removes the back button
+    headerBackVisible: false, // Ensures back button is hidden
+    ...TransitionPresets.ScaleFromCenterAndroid,
+  }}
+/>
       <Stack.Screen name="MyTabs" component={MyTabs} />
       <Stack.Screen
         name="Remainder Box"
@@ -43,23 +45,21 @@ export function StackNavi() {
             width: "100%",
             justifyContent: "center",
           },
-          ...TransitionPresets.ModalSlideFromBottomIOS, 
+          ...TransitionPresets.ModalSlideFromBottomIOS,
         }}
       />
-          <Stack.Screen
+      <Stack.Screen
         name="Register"
         component={Register}
-        options={{
-          title: "Registration",
-          headerShown: true,
-          headerTitleAlign: "center",
-          headerStyle: {
-            width: "100%",
-            justifyContent: "center",
-          },
-          ...TransitionPresets.ModalSlideFromBottomIOS, 
-        }}
+     options={{
+    headerShown: true,
+    headerTitleAlign: "center",
+    headerLeft: () => null, // Removes the back button
+    headerBackVisible: false, // Ensures back button is hidden
+    ...TransitionPresets.ScaleFromCenterAndroid,
+  }}
       />
+  
     </Stack.Navigator>
   );
 }

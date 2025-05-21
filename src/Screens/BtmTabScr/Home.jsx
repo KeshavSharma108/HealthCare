@@ -1,12 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
 import Mainlayout from '../../Component/Mainlayout'
 import SmallBox from '../../Component/smallBox'
-import { AuthSvg, SmallBoxSvg } from '../../assests/imgs/svg'
+import {  SmallBoxSvg } from '../../assests/imgs/svg'
 import { useNavigation } from '@react-navigation/native'
+import { AuthContext } from '../../api/authServices'
+import CustomLogout from '../../Component/customLogout'
 
 const Home = () => {
   const {navigate} = useNavigation()
+ 
+
   return (
 <Mainlayout  >
   <View style={styles.smallBoxContainer}>
@@ -16,6 +20,9 @@ const Home = () => {
    <View style={styles.smallBoxContainer}>
   <SmallBox title={'Message'} svgIcon={<SmallBoxSvg.Message/>}/>
     <SmallBox title={'Calander'} svgIcon={<SmallBoxSvg.Calender/>}/>
+  </View>
+  <View style={{height:'80%', justifyContent:'flex-end' , width:'100%' , alignItems:'flex-end'}}>
+<CustomLogout/>
   </View>
 
 </Mainlayout>

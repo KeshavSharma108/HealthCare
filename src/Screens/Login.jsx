@@ -12,12 +12,26 @@ import { AuthContext } from "../api/authServices";
 
 
 const Login = () => {
-  const { navigate } = useNavigation();
+  const { replace , navigate } = useNavigation();
   const { login } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+const handleLogin= async ()=>{
+ 
+  try {
+    const success = await login(email, password);
+    if (success) {
+      replace("MyTabs");
+    } else {
+      Alert.alert("Login Failed", "Invalid email or password. Please try again.");
+    }
+  } catch (error) {
+    Alert.alert("Error", "Something went wrong. Please try again later.");
+  }
 
+
+}
 
   return (
     <Mainlayout style={styles.mainContainer}>
@@ -48,7 +62,7 @@ const Login = () => {
           Don't Have Any Account :{" "}
         </Text>
         <Text
-          onPress={() => navigate("Register")}
+          onPress={() => replace("Register")}
           style={{ color: "blue", fontSize: 16, fontWeight: "500" }}
         >
           Click Here to register
@@ -58,7 +72,7 @@ const Login = () => {
         backgroundColor={colors.primaryColor}
         title={"Login"}
         color={colors.white}
-       onPress={() => {login(email, password) , navigate('MyTabs')}}
+       onPress={handleLogin}
       />
     </Mainlayout>
   );
