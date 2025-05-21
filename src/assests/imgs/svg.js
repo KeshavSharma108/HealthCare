@@ -47,9 +47,11 @@ export const SmallBoxSvg = {
 import LeftArrow from './ArrowLeft.svg';
 import uploadFile from './uploadFile.svg';
 import uploadLink from './uploadLink.svg'
+import Loader from './Loader.svg'
 
 export const ExtraIcons = {
     LeftArrow,
     uploadFile,
     uploadLink,
+    Loader,
 }

@@ -10,6 +10,7 @@ const CustomInput = ({
   onchange,
   onChangeText,
   value,
+  secureTextEntry,
   placeholderTextColor = "grey",
   svgIcon, // Pass an icon source as a prop
   ...props
@@ -32,6 +33,7 @@ const CustomInput = ({
           style={[styles.input, style]}
           placeholder={placeholder}
           placeholderTextColor={placeholderTextColor}
+          secureTextEntry={secureTextEntry}
           {...props}
         />
       </View>

@@ -5,17 +5,20 @@ import MyTabs from "./BtmTabNavi";
 import Splash from "../Screens/Splash";
 import Login from "../Screens/Login";
 import Remainder from "../Screens/SmallBoxScr/Remainder";
+import Register from "../Screens/Register";
+
 
 const Stack = createStackNavigator();
 
 export function StackNavi() {
+  //  const { token } = useContext(AuthContext);
   return (
     <Stack.Navigator
       initialRouteName="Splash"
       screenOptions={{
         headerShown: false,
         headerStyle: { height: 80 },
-        ...TransitionPresets.FadeFromBottomAndroid, // Add fade-in animation
+        ...TransitionPresets.FadeFromBottomAndroid, 
       }}
     >
       <Stack.Screen name="Splash" component={Splash} />
@@ -25,7 +28,7 @@ export function StackNavi() {
         options={{
           headerShown: true,
           headerTitleAlign: "center",
-          ...TransitionPresets.ScaleFromCenterAndroid, // Custom animation
+          ...TransitionPresets.ScaleFromCenterAndroid, 
         }}
       />
       <Stack.Screen name="MyTabs" component={MyTabs} />
@@ -40,7 +43,21 @@ export function StackNavi() {
             width: "100%",
             justifyContent: "center",
           },
-          ...TransitionPresets.ModalSlideFromBottomIOS, // Slide animation
+          ...TransitionPresets.ModalSlideFromBottomIOS, 
+        }}
+      />
+          <Stack.Screen
+        name="Register"
+        component={Register}
+        options={{
+          title: "Registration",
+          headerShown: true,
+          headerTitleAlign: "center",
+          headerStyle: {
+            width: "100%",
+            justifyContent: "center",
+          },
+          ...TransitionPresets.ModalSlideFromBottomIOS, 
         }}
       />
     </Stack.Navigator>
